@@ -1,0 +1,974 @@
+\hypertarget{calculator_8h}{}\section{calculator.\+h File Reference}
+\label{calculator_8h}\index{calculator.\+h@{calculator.\+h}}
+
+
+O programa foca em calcular expressões básicas pega elas infixas transforma em posfixas e calcula.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpointer}{pointer}
+\begin{DoxyCompactList}\small\item\em Estrutura do numero quando colocado na pilha. \end{DoxyCompactList}\item 
+struct \hyperlink{structstack}{stack}
+\begin{DoxyCompactList}\small\item\em Estrutura de ponteiro para o topo da lista. \end{DoxyCompactList}\item 
+struct \hyperlink{structptr}{ptr}
+\begin{DoxyCompactList}\small\item\em Estrutura de pilha para um float. \end{DoxyCompactList}\item 
+struct \hyperlink{structstack__float}{stack\+\_\+float}
+\begin{DoxyCompactList}\small\item\em estrutura de pilha pro topo \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structpointer}{pointer} \hyperlink{calculator_8h_a5784e30e041ff09d82d31df74e9ae133}{element}\hypertarget{calculator_8h_a5784e30e041ff09d82d31df74e9ae133}{}\label{calculator_8h_a5784e30e041ff09d82d31df74e9ae133}
+
+\begin{DoxyCompactList}\small\item\em Estrutura do numero quando colocado na pilha. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structptr}{ptr} \hyperlink{calculator_8h_a6c1a29e047a73874b8e99fcb568d674f}{element\+\_\+float}
+\begin{DoxyCompactList}\small\item\em Estrutura de pilha para um float. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structstack}{stack} $\ast$ \hyperlink{calculator_8h_af65ba36618ad9a40b9711e2e58e62f72}{alloc\+\_\+stack} ()
+\begin{DoxyCompactList}\small\item\em aloca um ponteiro para o topo da pilha \end{DoxyCompactList}\item 
+\hyperlink{calculator_8h_a5784e30e041ff09d82d31df74e9ae133}{element} $\ast$ \hyperlink{calculator_8h_ac43b545cf258b6f6c314325364a7b860}{alloc\+\_\+number} (char value)
+\begin{DoxyCompactList}\small\item\em a função aloca numero na expressao \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_a08ce53916ad129fdcf6d055716cc1372}{push\+\_\+stack} (char value, \hyperlink{structstack}{stack} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a função coloca numero na pilha \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_aea9eb307e5c7828f654e06b4e251e1a2}{print\+\_\+stack} (\hyperlink{structstack}{stack} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a função printa a pilha na tela \end{DoxyCompactList}\item 
+int \hyperlink{calculator_8h_a08ed06cbdd374c656af79f15817cff59}{is\+\_\+empty} (\hyperlink{structstack}{stack} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a funçao retorna True se a pilha estiver vazia \end{DoxyCompactList}\item 
+char \hyperlink{calculator_8h_ac07239f04c01ac4a4b8af06a71dc5fe5}{pop} (\hyperlink{structstack}{stack} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a funçao retorna variable se a pilha não estiver vazia se estiver vazia então retorna \textquotesingle{}0\textquotesingle{} \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_a0a3f11d265ade0d313428188453d9b04}{release\+\_\+stack} (\hyperlink{structstack}{stack} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a funçao recebe um ponteiro pro topo e libera toda pilha \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_aa6f59ea44e98a54def1d0ac359eb957c}{catch\+\_\+expression} (\hyperlink{structstack}{stack} $\ast$top, char $\ast$expression)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_aa6f59ea44e98a54def1d0ac359eb957c}{catch\+\_\+expression()} recebe uma string e empilha toda ela \end{DoxyCompactList}\item 
+int \hyperlink{calculator_8h_a88813170a8ded4017a8613ba15924201}{verify\+\_\+expression} (char $\ast$expression)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_a88813170a8ded4017a8613ba15924201}{verify\+\_\+expression()} recebe uma string e empilha os escopos de abertura se ele achar um escopo que fecha ele vai desempilhar da pilha e vai verificar se e da familia do escopo no final ele verifica se a pilha não esta vazia se ela não estiver os escopo não possui um escopo que fecha então a expressão e invalida \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{calculator_8h_a398a4e3d2cecc762d9e7375cd4cad1f5}{transform\+\_\+in\+\_\+sufix} (char $\ast$expression)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_a398a4e3d2cecc762d9e7375cd4cad1f5}{transform\+\_\+in\+\_\+sufix()} recebe uma string expression ela aloca uma pilha caso ache uma abre parenteses ele empillha caso nao ache um operando então ele vai colocar uma copia na string que vai sair da função caso ache um operando vai desempilha ate achar um escopo que abre \end{DoxyCompactList}\item 
+\hyperlink{structstack__float}{stack\+\_\+float} $\ast$ \hyperlink{calculator_8h_a4ac00eeccaa618fea6bd697f99f1ae41}{alloc\+\_\+stack\+\_\+float} ()
+\begin{DoxyCompactList}\small\item\em a função aloca uma pilha do tipo float \end{DoxyCompactList}\item 
+\hyperlink{calculator_8h_a6c1a29e047a73874b8e99fcb568d674f}{element\+\_\+float} $\ast$ \hyperlink{calculator_8h_a73462d238a806de3c67565588a8ff141}{alloc\+\_\+number\+\_\+float} (float value)
+\begin{DoxyCompactList}\small\item\em a função aloca uma variavel do tipo float e seta na pilha \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_a44312eb4c59506db10dffdfd2a8ff7b7}{push\+\_\+stack\+\_\+float} (float value, \hyperlink{structstack__float}{stack\+\_\+float} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_a44312eb4c59506db10dffdfd2a8ff7b7}{push\+\_\+stack\+\_\+float()} coloca numero na pilha \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_a68dc14e09dbfbb23528cb31f261bdb79}{print\+\_\+stack\+\_\+float} (\hyperlink{structstack__float}{stack\+\_\+float} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_a68dc14e09dbfbb23528cb31f261bdb79}{print\+\_\+stack\+\_\+float()} printa uma pilha de floats \end{DoxyCompactList}\item 
+int \hyperlink{calculator_8h_a88b2175391b81e4fa9c69d10e460a911}{is\+\_\+empty\+\_\+float} (\hyperlink{structstack__float}{stack\+\_\+float} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_a88b2175391b81e4fa9c69d10e460a911}{is\+\_\+empty\+\_\+float()} verifica se a pilha esta vazia \end{DoxyCompactList}\item 
+float \hyperlink{calculator_8h_a7cdeffe14dc7e2619c2bddd08bb369cf}{pop\+\_\+float} (\hyperlink{structstack__float}{stack\+\_\+float} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_a7cdeffe14dc7e2619c2bddd08bb369cf}{pop\+\_\+float()} desempilha pilha do tipo float \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_a2fb3cfc43b1de7e4bb85a5a52d0fe228}{release\+\_\+stack\+\_\+float} (\hyperlink{structstack__float}{stack\+\_\+float} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_a2fb3cfc43b1de7e4bb85a5a52d0fe228}{release\+\_\+stack\+\_\+float()} libera toda pilha \end{DoxyCompactList}\item 
+float \hyperlink{calculator_8h_a52c0e3c701cae977aadbedfd53b78ee0}{string\+\_\+to\+\_\+float} (char $\ast$n)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_a52c0e3c701cae977aadbedfd53b78ee0}{string\+\_\+to\+\_\+float()} transforma a string a float \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_aa541893eff552e81ad22670b9784b59d}{catch\+\_\+expression\+\_\+float} (\hyperlink{structstack__float}{stack\+\_\+float} $\ast$top, char $\ast$expression)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8h_aa541893eff552e81ad22670b9784b59d}{catch\+\_\+expression\+\_\+float()} a pega a expressão sufixa e faz os calculos na pilha deixando apenas com um resultado no final \end{DoxyCompactList}\item 
+void \hyperlink{calculator_8h_abedf929b3fc54a7186acfb6462dac8fc}{modo\+\_\+calculadora} ()
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8c_abedf929b3fc54a7186acfb6462dac8fc}{modo\+\_\+calculadora()} começa uma pilha vazia com os operandos normais e operandos especiais como $\ast$! +! -\/! \end{DoxyCompactList}\item 
+int \hyperlink{calculator_8h_a6266d758d1cbe04c092aae58be553098}{qnt\+\_\+stack\+\_\+float} (\hyperlink{structstack__float}{stack\+\_\+float} $\ast$top)
+\begin{DoxyCompactList}\small\item\em a função \hyperlink{calculator_8c_a6266d758d1cbe04c092aae58be553098}{qnt\+\_\+stack\+\_\+float()} recebe um ponteiro pro top e conta quantos elementos tem nele \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+O programa foca em calcular expressões básicas pega elas infixas transforma em posfixas e calcula. 
+
+\begin{DoxyAuthor}{Author}
+João Victor Cabral de Melo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+14 May 2018 
+\end{DoxyDate}
+
+
+\subsection{Typedef Documentation}
+\index{calculator.\+h@{calculator.\+h}!element\+\_\+float@{element\+\_\+float}}
+\index{element\+\_\+float@{element\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{element\+\_\+float}{element_float}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf ptr} {\bf element\+\_\+float}}\hypertarget{calculator_8h_a6c1a29e047a73874b8e99fcb568d674f}{}\label{calculator_8h_a6c1a29e047a73874b8e99fcb568d674f}
+
+
+Estrutura de pilha para um float. 
+
+pilha com ponteiro pro topo 
+
+\subsection{Function Documentation}
+\index{calculator.\+h@{calculator.\+h}!alloc\+\_\+number@{alloc\+\_\+number}}
+\index{alloc\+\_\+number@{alloc\+\_\+number}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{alloc\+\_\+number(char value)}{alloc_number(char value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf element}$\ast$ alloc\+\_\+number (
+\begin{DoxyParamCaption}
+\item[{char}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_ac43b545cf258b6f6c314325364a7b860}{}\label{calculator_8h_ac43b545cf258b6f6c314325364a7b860}
+
+
+a função aloca numero na expressao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & função recebe uma string como parametro \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number
+\end{DoxyReturn}
+a função aloca numero na expressao
+
+
+\begin{DoxyParams}{Parameters}
+{\em valua} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+variable 
+\end{DoxyReturn}
+faz alloc pro ptr de variable
+
+variable expression recebe value
+
+seta next como N\+U\+LL
+
+retorna variable \index{calculator.\+h@{calculator.\+h}!alloc\+\_\+number\+\_\+float@{alloc\+\_\+number\+\_\+float}}
+\index{alloc\+\_\+number\+\_\+float@{alloc\+\_\+number\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{alloc\+\_\+number\+\_\+float(float value)}{alloc_number_float(float value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf element\+\_\+float}$\ast$ alloc\+\_\+number\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{float}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a73462d238a806de3c67565588a8ff141}{}\label{calculator_8h_a73462d238a806de3c67565588a8ff141}
+
+
+a função aloca uma variavel do tipo float e seta na pilha 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ponteiro pra o elemento\+\_\+float 
+\end{DoxyReturn}
+faz alloc pro ptr de variable
+
+variable number recebe value
+
+seta next como N\+U\+LL
+
+retorna variable \index{calculator.\+h@{calculator.\+h}!alloc\+\_\+stack@{alloc\+\_\+stack}}
+\index{alloc\+\_\+stack@{alloc\+\_\+stack}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{alloc\+\_\+stack()}{alloc_stack()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stack}$\ast$ alloc\+\_\+stack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_af65ba36618ad9a40b9711e2e58e62f72}{}\label{calculator_8h_af65ba36618ad9a40b9711e2e58e62f72}
+
+
+aloca um ponteiro para o topo da pilha 
+
+novo nome pro ponteiro pro topo
+\begin{DoxyCode}
+1 pilha* top = (pilha *) malloc(sizeof(pilha));
+2 
+3 top->topo = NULL;
+4 
+5 return(top);
+\end{DoxyCode}
+
+
+aloca um ponteiro para o topo da pilha
+
+\begin{DoxyReturn}{Returns}
+ptr 
+\end{DoxyReturn}
+faz malloc pro ptr do tipo stack
+
+bota o top do ptr pra N\+U\+LL
+
+retorna ptr \index{calculator.\+h@{calculator.\+h}!alloc\+\_\+stack\+\_\+float@{alloc\+\_\+stack\+\_\+float}}
+\index{alloc\+\_\+stack\+\_\+float@{alloc\+\_\+stack\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{alloc\+\_\+stack\+\_\+float()}{alloc_stack_float()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf stack\+\_\+float}$\ast$ alloc\+\_\+stack\+\_\+float (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a4ac00eeccaa618fea6bd697f99f1ae41}{}\label{calculator_8h_a4ac00eeccaa618fea6bd697f99f1ae41}
+
+
+a função aloca uma pilha do tipo float 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ponteiro pra pilha 
+\end{DoxyReturn}
+faz malloc() pro ponteiro do tipo \hyperlink{structstack__float}{stack\+\_\+float()}
+
+aponta pra nulo
+
+retorna ponteiro \index{calculator.\+h@{calculator.\+h}!catch\+\_\+expression@{catch\+\_\+expression}}
+\index{catch\+\_\+expression@{catch\+\_\+expression}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{catch\+\_\+expression(stack $\ast$top, char $\ast$expression)}{catch_expression(stack *top, char *expression)}}]{\setlength{\rightskip}{0pt plus 5cm}void catch\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf stack} $\ast$}]{top, }
+\item[{char $\ast$}]{expression}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_aa6f59ea44e98a54def1d0ac359eb957c}{}\label{calculator_8h_aa6f59ea44e98a54def1d0ac359eb957c}
+
+
+a função \hyperlink{calculator_8h_aa6f59ea44e98a54def1d0ac359eb957c}{catch\+\_\+expression()} recebe uma string e empilha toda ela 
+
+top  expression \begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+a função \hyperlink{calculator_8h_aa6f59ea44e98a54def1d0ac359eb957c}{catch\+\_\+expression()} recebe uma string e empilha toda ela
+
+top  expression \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+contaddor
+
+para i até i o tamanho maximo de expression empilha
+
+empilha e expression \index{calculator.\+h@{calculator.\+h}!catch\+\_\+expression\+\_\+float@{catch\+\_\+expression\+\_\+float}}
+\index{catch\+\_\+expression\+\_\+float@{catch\+\_\+expression\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{catch\+\_\+expression\+\_\+float(stack\+\_\+float $\ast$top, char $\ast$expression)}{catch_expression_float(stack_float *top, char *expression)}}]{\setlength{\rightskip}{0pt plus 5cm}void catch\+\_\+expression\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{{\bf stack\+\_\+float} $\ast$}]{top, }
+\item[{char $\ast$}]{expression}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_aa541893eff552e81ad22670b9784b59d}{}\label{calculator_8h_aa541893eff552e81ad22670b9784b59d}
+
+
+a função \hyperlink{calculator_8h_aa541893eff552e81ad22670b9784b59d}{catch\+\_\+expression\+\_\+float()} a pega a expressão sufixa e faz os calculos na pilha deixando apenas com um resultado no final 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ponteiro} & pro top de uma pilha de float \\
+\hline
+{\em string} & sufixa \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+vetor da string
+
+contadores
+
+variaveis usadas nas contas
+
+anda na string
+
+switch de casos
+
+caso for ponto pega os dois numeros depois do ponto ou virgula
+
+pega ponto ou virgula
+
+pega numero depois da virgual ou ponto
+
+pega segundo numero depois da virgula ou ponto
+
+transforma a string pega em float
+
+empilha o float
+
+seta o i pra depois dos valores da virgula
+
+seta o j pra zero pra resetar a string
+
+reseta a string number pra uma mais nova
+
+desempilha primeiro valor
+
+desempilha segunda valor
+
+faz a soma
+
+empilha valor resultado
+
+desempilha primeiro valor
+
+desempilha segundo valor
+
+faz a diferença
+
+empilha o valor resultado
+
+desempilha primeiro valor
+
+desempilha segundo valor
+
+faz a multiplicação
+
+empilha valor resultado
+
+desempilha primeiro valor
+
+desempilha segundo valor
+
+faz a divisão
+
+empilha valor resultado
+
+caso for numero vai so fazer copia \index{calculator.\+h@{calculator.\+h}!is\+\_\+empty@{is\+\_\+empty}}
+\index{is\+\_\+empty@{is\+\_\+empty}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{is\+\_\+empty(stack $\ast$top)}{is_empty(stack *top)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+\_\+empty (
+\begin{DoxyParamCaption}
+\item[{{\bf stack} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a08ed06cbdd374c656af79f15817cff59}{}\label{calculator_8h_a08ed06cbdd374c656af79f15817cff59}
+
+
+a funçao retorna True se a pilha estiver vazia 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+a funçao retorna True se a pilha estiver vazia
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+retorna bool \index{calculator.\+h@{calculator.\+h}!is\+\_\+empty\+\_\+float@{is\+\_\+empty\+\_\+float}}
+\index{is\+\_\+empty\+\_\+float@{is\+\_\+empty\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{is\+\_\+empty\+\_\+float(stack\+\_\+float $\ast$top)}{is_empty_float(stack_float *top)}}]{\setlength{\rightskip}{0pt plus 5cm}int is\+\_\+empty\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{{\bf stack\+\_\+float} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a88b2175391b81e4fa9c69d10e460a911}{}\label{calculator_8h_a88b2175391b81e4fa9c69d10e460a911}
+
+
+a função \hyperlink{calculator_8h_a88b2175391b81e4fa9c69d10e460a911}{is\+\_\+empty\+\_\+float()} verifica se a pilha esta vazia 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ponteiro} & do \hyperlink{structstack__float}{stack\+\_\+float} pro topo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int do tipo bool 
+\end{DoxyReturn}
+verifica se a pilha não esta vazia \index{calculator.\+h@{calculator.\+h}!modo\+\_\+calculadora@{modo\+\_\+calculadora}}
+\index{modo\+\_\+calculadora@{modo\+\_\+calculadora}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{modo\+\_\+calculadora()}{modo_calculadora()}}]{\setlength{\rightskip}{0pt plus 5cm}void modo\+\_\+calculadora (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_abedf929b3fc54a7186acfb6462dac8fc}{}\label{calculator_8h_abedf929b3fc54a7186acfb6462dac8fc}
+
+
+a função \hyperlink{calculator_8c_abedf929b3fc54a7186acfb6462dac8fc}{modo\+\_\+calculadora()} começa uma pilha vazia com os operandos normais e operandos especiais como $\ast$! +! -\/! 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+inicia pilha vazia
+
+string pro numero ou modo
+
+variaveis utilizadas nos casos
+
+variaveis utilizadas nos casos
+
+contadores
+
+input do modo
+
+q e o modo de saida
+
+verfica se tem operandos suficientes
+
+desempilha
+
+desempilha
+
+faz a soma
+
+empilha o resultado
+
+verfica se tem operandos suficientes
+
+desempilha
+
+desempilha
+
+faz a diferença
+
+empilha resultado
+
+verfica se tem operandos suficientes
+
+desempilha
+
+desempilha
+
+faz a multipilcação
+
+empiha resultado
+
+se for divisão caso
+
+verifica se tem operandos suficientes
+
+desempilha
+
+desempilha
+
+faz a divisão
+
+empilha resultado
+
+caso +!
+
+verifica se tem operandos suficientes
+
+enquanto não estiver vazia
+
+desempilha
+
+bota na soma total
+
+empilha resultado
+
+caso -\/!
+
+verifica se tem operadores suficientes
+
+desempilha o primeiro valor
+
+enquanto nao for vazio
+
+desempilha
+
+e joga no sub total
+
+empilha resultado
+
+caso $\ast$!
+
+verifica se tem operadores suficientes
+
+enquanto não estiver vazia
+
+desempilha
+
+joga no mult
+
+empilha resultado
+
+caso c
+
+verifica se tem operandos suficientes
+
+desempilha o numero de vezes pra copiar
+
+desempilha o numero pra ser copiado
+
+empilha esse numero c vezes
+
+caso for operando
+
+transforma string em float
+
+empilha
+
+da input no novo modo \index{calculator.\+h@{calculator.\+h}!pop@{pop}}
+\index{pop@{pop}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{pop(stack $\ast$top)}{pop(stack *top)}}]{\setlength{\rightskip}{0pt plus 5cm}char pop (
+\begin{DoxyParamCaption}
+\item[{{\bf stack} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_ac07239f04c01ac4a4b8af06a71dc5fe5}{}\label{calculator_8h_ac07239f04c01ac4a4b8af06a71dc5fe5}
+
+
+a funçao retorna variable se a pilha não estiver vazia se estiver vazia então retorna \textquotesingle{}0\textquotesingle{} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+variable
+\end{DoxyReturn}
+a funçao retorna variable se a pilha não estiver vazia se estiver vazia então retorna \textquotesingle{}0\textquotesingle{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+variable 
+
+\textquotesingle{}0\textquotesingle{} do tipo char 
+\end{DoxyReturn}
+pilha não esta vazia
+
+entao aux aponta para topo
+
+topo recebe o proximo de aux
+
+bota char numa nova variavel
+
+libera o ponteiro pra variavel aux
+
+retorna aux
+
+se pilha estiver vazia então retorna N\+U\+LL \index{calculator.\+h@{calculator.\+h}!pop\+\_\+float@{pop\+\_\+float}}
+\index{pop\+\_\+float@{pop\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{pop\+\_\+float(stack\+\_\+float $\ast$top)}{pop_float(stack_float *top)}}]{\setlength{\rightskip}{0pt plus 5cm}float pop\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{{\bf stack\+\_\+float} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a7cdeffe14dc7e2619c2bddd08bb369cf}{}\label{calculator_8h_a7cdeffe14dc7e2619c2bddd08bb369cf}
+
+
+a função \hyperlink{calculator_8h_a7cdeffe14dc7e2619c2bddd08bb369cf}{pop\+\_\+float()} desempilha pilha do tipo float 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ponteiro} & do \hyperlink{structstack__float}{stack\+\_\+float} pro topo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+variable desempilhada 
+\end{DoxyReturn}
+pilha não esta vazia
+
+entao aux aponta para topo
+
+topo recebe o proximo de aux
+
+bota char numa nova variavel
+
+libera o ponteiro pra variavel aux
+
+retorna aux
+
+se pilha estiver vazia então retorna N\+U\+LL \index{calculator.\+h@{calculator.\+h}!print\+\_\+stack@{print\+\_\+stack}}
+\index{print\+\_\+stack@{print\+\_\+stack}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{print\+\_\+stack(stack $\ast$top)}{print_stack(stack *top)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+stack (
+\begin{DoxyParamCaption}
+\item[{{\bf stack} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_aea9eb307e5c7828f654e06b4e251e1a2}{}\label{calculator_8h_aea9eb307e5c7828f654e06b4e251e1a2}
+
+
+a função printa a pilha na tela 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+a função printa a pilha na tela
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+cria um ponteiro auxiliar pro top da pilha
+
+vai ficar subindo na pilha enquanto nao chegar no seu final
+
+vai pro proximo \index{calculator.\+h@{calculator.\+h}!print\+\_\+stack\+\_\+float@{print\+\_\+stack\+\_\+float}}
+\index{print\+\_\+stack\+\_\+float@{print\+\_\+stack\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{print\+\_\+stack\+\_\+float(stack\+\_\+float $\ast$top)}{print_stack_float(stack_float *top)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+stack\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{{\bf stack\+\_\+float} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a68dc14e09dbfbb23528cb31f261bdb79}{}\label{calculator_8h_a68dc14e09dbfbb23528cb31f261bdb79}
+
+
+a função \hyperlink{calculator_8h_a68dc14e09dbfbb23528cb31f261bdb79}{print\+\_\+stack\+\_\+float()} printa uma pilha de floats 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{structstack__float}{stack\+\_\+float}} & ponteiro pro topo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+cria um ponteiro auxiliar pro top da pilha
+
+vai ficar subindo na pilha enquanto nao chegar no seu final
+
+vai pro proximo \index{calculator.\+h@{calculator.\+h}!push\+\_\+stack@{push\+\_\+stack}}
+\index{push\+\_\+stack@{push\+\_\+stack}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{push\+\_\+stack(char value, stack $\ast$top)}{push_stack(char value, stack *top)}}]{\setlength{\rightskip}{0pt plus 5cm}void push\+\_\+stack (
+\begin{DoxyParamCaption}
+\item[{char}]{value, }
+\item[{{\bf stack} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a08ce53916ad129fdcf6d055716cc1372}{}\label{calculator_8h_a08ce53916ad129fdcf6d055716cc1372}
+
+
+a função coloca numero na pilha 
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+a função coloca numero na pilha
+
+value  top \begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+alloca estrutura do tipo elemento na variable
+
+proximo da variable aponta pro top
+
+top recebe variable \index{calculator.\+h@{calculator.\+h}!push\+\_\+stack\+\_\+float@{push\+\_\+stack\+\_\+float}}
+\index{push\+\_\+stack\+\_\+float@{push\+\_\+stack\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{push\+\_\+stack\+\_\+float(float value, stack\+\_\+float $\ast$top)}{push_stack_float(float value, stack_float *top)}}]{\setlength{\rightskip}{0pt plus 5cm}void push\+\_\+stack\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{float}]{value, }
+\item[{{\bf stack\+\_\+float} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a44312eb4c59506db10dffdfd2a8ff7b7}{}\label{calculator_8h_a44312eb4c59506db10dffdfd2a8ff7b7}
+
+
+a função \hyperlink{calculator_8h_a44312eb4c59506db10dffdfd2a8ff7b7}{push\+\_\+stack\+\_\+float()} coloca numero na pilha 
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+float value  \hyperlink{structstack__float}{stack\+\_\+float} ponteiro pro topo \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+alloca estrutura do tipo elemento na variable
+
+proximo da variable aponta pro top
+
+top recebe variable \index{calculator.\+h@{calculator.\+h}!qnt\+\_\+stack\+\_\+float@{qnt\+\_\+stack\+\_\+float}}
+\index{qnt\+\_\+stack\+\_\+float@{qnt\+\_\+stack\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{qnt\+\_\+stack\+\_\+float(stack\+\_\+float $\ast$top)}{qnt_stack_float(stack_float *top)}}]{\setlength{\rightskip}{0pt plus 5cm}int qnt\+\_\+stack\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{{\bf stack\+\_\+float} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a6266d758d1cbe04c092aae58be553098}{}\label{calculator_8h_a6266d758d1cbe04c092aae58be553098}
+
+
+a função \hyperlink{calculator_8c_a6266d758d1cbe04c092aae58be553098}{qnt\+\_\+stack\+\_\+float()} recebe um ponteiro pro top e conta quantos elementos tem nele 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cont 
+\end{DoxyReturn}
+auxiliar pro topo
+
+contador
+
+enquanto não chegar no fim
+
+conte
+
+va para o proximo
+
+retorno a quantidade \index{calculator.\+h@{calculator.\+h}!release\+\_\+stack@{release\+\_\+stack}}
+\index{release\+\_\+stack@{release\+\_\+stack}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{release\+\_\+stack(stack $\ast$top)}{release_stack(stack *top)}}]{\setlength{\rightskip}{0pt plus 5cm}void release\+\_\+stack (
+\begin{DoxyParamCaption}
+\item[{{\bf stack} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a0a3f11d265ade0d313428188453d9b04}{}\label{calculator_8h_a0a3f11d265ade0d313428188453d9b04}
+
+
+a funçao recebe um ponteiro pro topo e libera toda pilha 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+a funçao recebe um ponteiro pro topo e libera toda pilha
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+aponta pro topo
+
+enquanto o ponteiro que anda na estrutura for diferente de N\+U\+LL
+
+topo vai pro proximo
+
+libera o ponteiro pro topo
+
+ponteiro aponta pro novo topo
+
+free no ponteiro do topo \index{calculator.\+h@{calculator.\+h}!release\+\_\+stack\+\_\+float@{release\+\_\+stack\+\_\+float}}
+\index{release\+\_\+stack\+\_\+float@{release\+\_\+stack\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{release\+\_\+stack\+\_\+float(stack\+\_\+float $\ast$top)}{release_stack_float(stack_float *top)}}]{\setlength{\rightskip}{0pt plus 5cm}void release\+\_\+stack\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{{\bf stack\+\_\+float} $\ast$}]{top}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a2fb3cfc43b1de7e4bb85a5a52d0fe228}{}\label{calculator_8h_a2fb3cfc43b1de7e4bb85a5a52d0fe228}
+
+
+a função \hyperlink{calculator_8h_a2fb3cfc43b1de7e4bb85a5a52d0fe228}{release\+\_\+stack\+\_\+float()} libera toda pilha 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ponteiro} & do \hyperlink{structstack__float}{stack\+\_\+float} pro topo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+aponta pro topo
+
+enquanto o ponteiro que anda na estrutura for diferente de N\+U\+LL
+
+topo vai pro proximo
+
+libera o ponteiro pro topo
+
+ponteiro aponta pro novo topo
+
+free no ponteiro do topo \index{calculator.\+h@{calculator.\+h}!string\+\_\+to\+\_\+float@{string\+\_\+to\+\_\+float}}
+\index{string\+\_\+to\+\_\+float@{string\+\_\+to\+\_\+float}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{string\+\_\+to\+\_\+float(char $\ast$n)}{string_to_float(char *n)}}]{\setlength{\rightskip}{0pt plus 5cm}float string\+\_\+to\+\_\+float (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a52c0e3c701cae977aadbedfd53b78ee0}{}\label{calculator_8h_a52c0e3c701cae977aadbedfd53b78ee0}
+
+
+a função \hyperlink{calculator_8h_a52c0e3c701cae977aadbedfd53b78ee0}{string\+\_\+to\+\_\+float()} transforma a string a float 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number 
+\end{DoxyReturn}
+seta o valor do numero pra 0
+
+variavel que recebe transformação
+
+seta contadores
+
+enquanto nao encontrar , ou . conta os numeros
+
+contador 2 recebe o contador 1
+
+de 0 ate os numeros antes do . ou , faça
+
+transforma o char em float
+
+faz a soma usando potencia 10 no number
+
+conta2 --
+
+agr e dpois do . ou ,
+
+transforma o char em float
+
+soma com potencia dez o numero
+
+conta menos
+
+retorna numero \index{calculator.\+h@{calculator.\+h}!transform\+\_\+in\+\_\+sufix@{transform\+\_\+in\+\_\+sufix}}
+\index{transform\+\_\+in\+\_\+sufix@{transform\+\_\+in\+\_\+sufix}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{transform\+\_\+in\+\_\+sufix(char $\ast$expression)}{transform_in_sufix(char *expression)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ transform\+\_\+in\+\_\+sufix (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{expression}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a398a4e3d2cecc762d9e7375cd4cad1f5}{}\label{calculator_8h_a398a4e3d2cecc762d9e7375cd4cad1f5}
+
+
+a função \hyperlink{calculator_8h_a398a4e3d2cecc762d9e7375cd4cad1f5}{transform\+\_\+in\+\_\+sufix()} recebe uma string expression ela aloca uma pilha caso ache uma abre parenteses ele empillha caso nao ache um operando então ele vai colocar uma copia na string que vai sair da função caso ache um operando vai desempilha ate achar um escopo que abre 
+
+expression \begin{DoxyReturn}{Returns}
+expressão em sufixo 
+\end{DoxyReturn}
+aloca pilha
+
+string que vai ser retornada
+
+variavel que segura o que retorna no \hyperlink{calculator_8c_ac07239f04c01ac4a4b8af06a71dc5fe5}{pop()}
+
+contadores
+
+anda na string
+
+casos
+
+caso escopo de abertura empilha
+
+empilha o escopo
+
+caso operando de baixa prioridade
+
+desempilha
+
+enquanto nao estiver vazia ou abrir escopo
+
+faz copia
+
+desempilha
+
+empilha variavel
+
+empilha char
+
+desempilha
+
+enquanto nao estiver vazia ou abrir escopo
+
+faz copia
+
+desempilha
+
+empilha variavel
+
+empilha expressão
+
+desempilha
+
+nao achar abrir faz copia e empilha
+
+faz copia
+
+desempilha
+
+desempilha
+
+nao achar abrir faz copia e empilha
+
+faz copia
+
+desempilha
+
+idem
+
+enquanto nao achar um abre escopo
+
+faz copia
+
+desempilha
+
+so faz caso nao for operador ou abertura ou fechamento de escopo
+
+seta o fim da string \index{calculator.\+h@{calculator.\+h}!verify\+\_\+expression@{verify\+\_\+expression}}
+\index{verify\+\_\+expression@{verify\+\_\+expression}!calculator.\+h@{calculator.\+h}}
+\subsubsection[{\texorpdfstring{verify\+\_\+expression(char $\ast$expression)}{verify_expression(char *expression)}}]{\setlength{\rightskip}{0pt plus 5cm}int verify\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{expression}
+\end{DoxyParamCaption}
+)}\hypertarget{calculator_8h_a88813170a8ded4017a8613ba15924201}{}\label{calculator_8h_a88813170a8ded4017a8613ba15924201}
+
+
+a função \hyperlink{calculator_8h_a88813170a8ded4017a8613ba15924201}{verify\+\_\+expression()} recebe uma string e empilha os escopos de abertura se ele achar um escopo que fecha ele vai desempilhar da pilha e vai verificar se e da familia do escopo no final ele verifica se a pilha não esta vazia se ela não estiver os escopo não possui um escopo que fecha então a expressão e invalida 
+
+expression \begin{DoxyReturn}{Returns}
+bool
+\end{DoxyReturn}
+expression \begin{DoxyReturn}{Returns}
+bool como 1= True e 1 != False 
+\end{DoxyReturn}
+aloca nova pilha
+
+contador
+
+enquanto não terminar a string faça os testes
+
+entra no switch o char
+
+se for abrir escopo e empilhado
+
+empilha char
+
+se for abrir escopo e empilhado
+
+empilha char
+
+se for abrir escopo e empilhado
+
+empilha char
+
+se for fechar escopo desempilha e verifica se pilha já não esta vazia
+
+verifica se a pilha esta vazia
+
+print equação não e valida pois significa que ela não tem escopo de abertura
+
+desempilha o que sobrou
+
+desempilha
+
+verifica se o char desempilhado e o seu par
+
+printa equação não e valida
+
+desempilha o que sobrou
+
+verifica se o char desempilhado e o seu par
+
+printa equação não e valida
+
+desempilha o que sobrou
+
+desempilha
+
+verifica se o char desempilhado e o seu par
+
+printa equação não e valida
+
+desempilha o que sobrou
+
+verifica se o char desempilhado e o seu par
+
+printa equação não e valida
+
+desempilha o que sobrou
+
+desempilha
+
+verifica se o char desempilhado e o seu par
+
+printa equação não e valida
+
+desempilha o que sobrou
+
+depois de parear os escopos se ainda estiver algum escopo na pilha então a expressão não válida
+
+printa equação não e valida
+
+libera o resto da pilha 

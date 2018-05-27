@@ -1,0 +1,39 @@
+\hypertarget{structpointer}{}\section{pointer Struct Reference}
+\label{structpointer}\index{pointer@{pointer}}
+
+
+Estrutura do numero quando colocado na pilha.  
+
+
+
+
+{\ttfamily \#include $<$calculator.\+h$>$}
+
+
+
+Collaboration diagram for pointer\+:
+% FIG 0
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{structpointer_a8f168786eb3820b397cf54e6ba2e99f3}{expression}
+\item 
+struct \hyperlink{structpointer}{pointer} $\ast$ \hyperlink{structpointer_abd78b7bf62f513868a24812377b3281f}{next}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estrutura do numero quando colocado na pilha. 
+
+\subsection{Member Data Documentation}
+\index{pointer@{pointer}!expression@{expression}}
+\index{expression@{expression}!pointer@{pointer}}
+\subsubsection[{\texorpdfstring{expression}{expression}}]{\setlength{\rightskip}{0pt plus 5cm}char pointer\+::expression}\hypertarget{structpointer_a8f168786eb3820b397cf54e6ba2e99f3}{}\label{structpointer_a8f168786eb3820b397cf54e6ba2e99f3}
+Estrutura com ponteiros para o proximo e guarda uma string numero \index{pointer@{pointer}!next@{next}}
+\index{next@{next}!pointer@{pointer}}
+\subsubsection[{\texorpdfstring{next}{next}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf pointer}$\ast$ pointer\+::next}\hypertarget{structpointer_abd78b7bf62f513868a24812377b3281f}{}\label{structpointer_abd78b7bf62f513868a24812377b3281f}
+string do numero 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{calculator_8h}{calculator.\+h}\end{DoxyCompactItemize}
